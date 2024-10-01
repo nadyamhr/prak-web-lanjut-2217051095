@@ -10,7 +10,8 @@ class UserController extends Controller
         return view('create_user', [
             'kelas' => Kelas::all(),
         ]); 
-        }
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -20,13 +21,12 @@ class UserController extends Controller
         ]);
 
         $user = UserModel::create($validatedData);
-
         $user->load('kelas');
            
         return view('profile', [
             'nama' => $user->nama,
             'npm' => $user->npm,
-            'nama_kelas'=> $user->kelas->nama_kelas ?? 'Kelas tidak ditemukan',
+            'nama_kelas' => $user->kelas->nama_kelas ?? 'Kelas tidak ditemukan',
         ]);
     }
 }

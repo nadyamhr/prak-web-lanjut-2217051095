@@ -3,92 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Profile User</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #e2e2e2;
-            color: #333;
-            margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
         .profile-container {
             background-color: #fff;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 90%;
-            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
             text-align: center;
-        }
-        .profile-header {
-            font-size: 28px;
-            font-weight: bold;
-            color: #4A90E2;
-            margin-bottom: 20px;
-        }
-        .profile-info {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .profile-info label {
-            font-weight: bold;
-            color: #555;
-        }
-        .profile-info div {
-            font-size: 16px;
             color: #333;
         }
-        .profile-footer {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #888;
+        .profile-info {
+            margin-bottom: 15px;
         }
-        .profile-footer a {
-            color: #4A90E2;
+        .profile-info label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .profile-info div {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .button {
+            width: 100%;
+            padding: 10px;
+            background-color: #6AB2FF;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
             text-decoration: none;
-            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px; /* Space between info and button */
         }
-        .profile-footer a:hover {
-            text-decoration: underline;
-        }
-        .profile-picture {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            object-fit: cover;
+        .button:hover {
+            background-color: #4A90E2;
         }
     </style>
 </head>
 <body>
     <div class="profile-container">
-        <img src="{{ asset('images/profile.jpg') }}" alt="Profile Picture" class="profile-picture">
-        <div class="profile-header">Profile Information</div>
+        <h1>Profil User</h1>
         <div class="profile-info">
-            <label for="nama">Nama:</label>
-            <div id="nama">{{ $nama }}</div>
-        </div>
-        <div class="profile-info">
-            <label for="kelas">Kelas:</label>
-            <div id="kelas">{{ $kelas }}</div>
+            <label>Nama:</label>
+            <div>{{ $nama }}</div>
         </div>
         <div class="profile-info">
-            <label for="npm">NPM:</label>
-            <div id="npm">{{ $npm }}</div>
+            <label>NPM:</label>
+            <div>{{ $npm }}</div>
         </div>
-        <div class="profile-footer">
-            <a href="/">Back to Home</a>
+        <div class="profile-info">
+            <label>Kelas:</label>
+            <div>{{ $nama_kelas ?? 'Kelas tidak ditemukan' }}</div>
         </div>
+        <a href="{{ route('user.create') }}" class="button">Kembali ke Form</a>
     </div>
 </body>
 </html>

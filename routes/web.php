@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserModelController;
+
+Route::get('/user/create', [UserModelController::class, 'create'])->name('user.create');
+Route::post('/user', [UserModelController::class, 'store'])->name('user.store');
+Route::get('/user/{id}', [UserModelController::class, 'show'])->name('user.show');
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +21,3 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-// Routes for ProfileController
-Route::get('/profile/{nama?}/{kelas?}/{npm?}', [ProfileController::class, 'profile']);
-
-// Routes for UserController
-Route::get('/user/profile', [UserController::class, 'profile']); 
-Route::get('/user/create', [UserController::class, 'create']);
-Route::post('/user/store', [UserController::class, 'store'])->name('user.store');

@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserModelController;
+use App\Http\Controllers\UserController;
+
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
+Route::get('/user/create', [UserModelController::class, 'create'])->name('user.create');
+Route::post('/user', [UserModelController::class, 'store'])->name('user.store');
+Route::get('/user/{id}', [UserModelController::class, 'show'])->name('user.show');
 
 /*
 |--------------------------------------------------------------------------

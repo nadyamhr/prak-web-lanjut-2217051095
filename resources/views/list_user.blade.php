@@ -6,8 +6,13 @@
     <title>Document</title>
     <style>
     body {
-    background: linear-gradient(to right, #ff7eb3, #ff3d8e);
-    font-family: Arial, sans-serif;
+        font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #7c0d86 0%, #f371ae 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
 }
 
 .container {
@@ -16,6 +21,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    width:80%;
 }
 
 h1 {
@@ -47,8 +53,17 @@ h1 {
 }
 
 .btn-primary {
-    background-color: #6a5acd;
+    padding: 10px;
+    background-color: #6AB2FF;
+    border: none;
     color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
 }
 
 .btn-primary:hover {
@@ -57,7 +72,17 @@ h1 {
 }
 
 .btn-warning {
-    background-color: #ffcc00;
+    padding: 10px;
+    background-color: #62f80b;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
     color: black;
 }
 
@@ -67,8 +92,17 @@ h1 {
 }
 
 .btn-danger {
-    background-color: #ff4d4d;
+    padding: 10px;
+    border: none;
     color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #ff4d4d;
 }
 
 .btn-danger:hover {
@@ -80,7 +114,8 @@ h1 {
     border-radius: 50%;
 }
 
-.btn-tambah {git
+.btn-tambah {
+    width: 100px;
     padding: 10px;
     background-color: #6AB2FF;
     border: none;
@@ -97,14 +132,20 @@ h1 {
     background-color: #4A90E2;
 }
 
+.text-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+}
+
 </style>
 </head>
 <body>
     <div class="mb-3 mt-2 m-3">
-        <a href="{{ route('user.create') }}" class="btn-tambah">Tambah User</a>
     </div>
 
     <div class="container mt-5">
+        <a href="{{ route('user.create') }}" class="btn-tambah">Tambah User</a>
         <h1 class="text-center">List Data</h1><br>
         <table class="table">
             <thead>
@@ -126,18 +167,16 @@ h1 {
                     <td><?= $user['nama'] ?></td>
                     <td><?= $user['npm'] ?></td>
                     <td><?= $user['nama_kelas'] ?></td>
-                    <td>
-                        <img src="{{ asset('storage/uploads/' . $user->foto) }}" alt="Foto User" width="100">
-                    </td>
+                    <td><img src="{{ Storage::url($user->foto) }}" alt="Foto User" width="100"></td>
                     <td>
                         <!-- View -->
-                        <a href="" class="btn btn-primary btn-sm">View</a>
+                        <a href="{{ route('user.show', $user['id']) }}" class="btn btn-primary btn-sm">View</a>
 
                         <!-- Edit -->
-                        <a href="" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{{ route('user.edit', $user['id']) }}" class="btn btn-warning btn-sm">Edit</a>
 
                         <!-- Delete -->
-                        <form action="" method="POST" style="display:inline-block;">
+                        <form action="{{ route('user.destroy', $user['id']) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm"

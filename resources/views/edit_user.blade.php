@@ -200,7 +200,8 @@ img {
                 <label for="foto" class="form-label">Foto</label>
                 <input class="form-control" type="file" id="foto" name="foto">
                 @if ($user->foto)
-                <img src="{{ asset('storage/uploads/' . $user->foto) }}" alt="Foto User" width="100">
+                <img src="{{ Storage::url($user->foto) }}" alt="Foto User" width="100">
+
                 @endif
             </div>
 

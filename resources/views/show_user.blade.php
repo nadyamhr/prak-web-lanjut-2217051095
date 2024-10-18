@@ -107,7 +107,8 @@
             <h5 class="card-title">{{ $user->nama }}</h5>
             <h5 class="card-title">{{ $user->npm }}</h5>
             <h5 class="card-title">{{ $nama_kelas ?? 'Kelas tidak ditemukan' }}</h5>
-            <img src="{{ asset('storage/uploads/' . $user->foto) }}" class="card-img-top" alt="Foto User">
+            <img src="{{ Storage::url($user->foto) }}" alt="Foto User" width="100">
+
             <hr>
             <a href="{{ route('user.list') }}" class="btn-kembali">Kembali ke List</a>
         </div>

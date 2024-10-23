@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Create User
-    </title>
-<style>
-    body {
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>profile</title>
+    <style>
+        body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
@@ -16,39 +15,32 @@
     height: 100vh;
     margin: 0;
 }
-
-form {
+.profile-container {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 30px;
+    border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
 }
-
 h1 {
     text-align: center;
     color: #333;
 }
-
-div {
+.profile-info {
     margin-bottom: 15px;
 }
-
-label {
+.profile-info label {
     display: block;
     margin-bottom: 5px;
     color: #333;
 }
-
-input {
-    width: 100%;
+.profile-info div {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
+    background-color: #f9f9f9;
 }
-
-button {
+.button {
     width: 100%;
     padding: 10px;
     background-color: #6AB2FF;
@@ -57,13 +49,15 @@ button {
     font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
 }
-
-button:hover {
+.button:hover {
     background-color: #4A90E2;
 }
-</style>
-
+    </style>
 </head>
 <body>
     @yield('content')

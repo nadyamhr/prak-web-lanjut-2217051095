@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('user.store') }}" method="POST">
+<a href="{{ route('user.list') }}" class="btn btn-success"></a>
+    <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <h1>Create User</h1>
         <div>
@@ -13,12 +14,20 @@
             <input type="text" name="npm" id="npm" required>
         </div>
         <div>
-            <label for="kelas_id">Kelas:</label>
+            <label for="kelas_id">Kelas:</label><br>
             <select name="kelas_id" id="kelas_id" required>
                 @foreach($kelas as $kelasItem)
                     <option value="{{ $kelasItem->id }}">{{ $kelasItem->nama_kelas }}</option>
                 @endforeach
             </select>
+        </div>
+        <div>
+            <label for="ipk">IPK:</label>
+            <input type="number" name="ipk" id="ipk" step="0.01" max="4.00" placeholder="IPK (0.00 - 4.00)">
+        </div>
+        <div>
+            <label for="foto">Foto:</label><br>
+            <input type="file" id="foto" name="foto"><br><br>
         </div>
         <button type="submit">Submit</button>
     </form>

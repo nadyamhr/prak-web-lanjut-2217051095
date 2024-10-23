@@ -1,27 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile User</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/profile.css') }}">
-</head>
-<body>
-    <div class="profile-container">
-        <h1>Profil User</h1>
-        <div class="profile-info">
-            <label>Nama:</label>
-            <div>{{ $nama }}</div>
-        </div>
-        <div class="profile-info">
-            <label>NPM:</label>
-            <div>{{ $npm }}</div>
-        </div>
-        <div class="profile-info">
-            <label>Kelas:</label>
-            <div>{{ $nama_kelas ?? 'Kelas tidak ditemukan' }}</div>
-        </div>
-        <a href="{{ route('user.create') }}" class="button">Kembali ke Form</a>
+@extends('layouts.app')
+
+@section ('container')
+<div class="card">
+    <div class="img-bx">
+        <img src="/assets/img/kucing.png" alt="img" />
     </div>
-</body>
-</html>
+    <div class="content">
+        <div class="detail">
+            <h2><?= $nama ?><br /><span><?= $npm ?></span><br /><span><?= $nama_kelas ?? 'Kelas tidak ditemukan' ?></span>
+            </h2>
+        </div>
+    </div>
+</div>
+
+@endsection

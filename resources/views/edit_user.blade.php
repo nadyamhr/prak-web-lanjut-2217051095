@@ -205,6 +205,12 @@ img {
                 @endif
             </div>
 
+            <div class="label-1">
+                <label for="ipk" class="form-label">IPK</label>
+                <input type="number" class="form-control" name="ipk" id="ipk" step="0.01" max="4.00"
+                    value="{{ old('ipk', $user->ipk) }}" placeholder="IPK (0.00 - 4.00)">
+            </div>
+
             <button type="submit" class="btn-submit">Submit</button>
             <a href="{{ route('user.list') }}" class="btn-kembali">Kembali</a>
         </div>

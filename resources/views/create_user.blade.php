@@ -22,6 +22,10 @@
             </select>
         </div>
         <div>
+            <label for="ipk">IPK:</label>
+            <input type="number" name="ipk" id="ipk" step="0.01" max="4.00" placeholder="IPK (0.00 - 4.00)">
+        </div>
+        <div>
             <label for="foto">Foto:</label><br>
             <input type="file" id="foto" name="foto"><br><br>
         </div>
